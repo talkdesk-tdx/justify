@@ -19,6 +19,23 @@ Justify is a JSON validator based on [JSON Schema Specification] and [Java API f
 * Can be used as a modular jar in Java 9 and higher.
 * Internationalized problem messages, including Japanese language support.
 
+## Additions to the original project
+
+### Partial implementation of the AJV Extension proposal as defined here [AJV](https://ajv.js.org/keywords.html#keywords-for-strings) with slight modifications. Currently from the AJV extensions only the string section is implemented. It allows comparison of dates, times and datetimes as string objects. 
+
+Date should be a complete date ISO 8601 (e.g. YYYY-MM-DD).
+Time should be in ISO 8601 (e.g. 11:13:06+00:00 or UTC 11:13:06Z).
+Datetime should be ISO 8601 in the form \<date>T\<time>.
+
+* formatMaximum: No change. It states that formatMaximum should be the latest date accepted, excluding the same temporal unit.
+* formatMinimum: No change: It states that formatMinimum should be the earliest date accepted, excluding the same temporal unit.
+* exclusiveFormatMaximum: *Modified*. This field should also be a string with a temporal unit of the above format.
+* exclusiveFormatMinimum: *Modified*. This field should also be a string with a temporal unit of the above format.
+    
+You may use a combination of any of the constrainsts above as they are evaluated indenpendent of each other, for instance to define a range of accepted values.
+
+### AJV Extension proposal changed to be the default option.
+
 ## Getting Started
 
 ### Minimum Setup
