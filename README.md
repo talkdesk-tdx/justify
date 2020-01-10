@@ -67,7 +67,7 @@ This library supports the following implementations and you can select whichever
 2. [Apache Johnzon]
 3. [Joy]
 
-Please add exactly one dependency to your build as shown below.
+Please add this dependency to your build as shown below.
 
 #### Jakarta JSON Processing
 *Maven*
@@ -79,45 +79,6 @@ Please add exactly one dependency to your build as shown below.
     <version>1.1.6</version>
     <scope>runtime</scope>
 </dependency>
-```
-
-*Gradle*
-```
-runtimeOnly group: 'org.glassfish', name: 'jakarta.json', classifier: 'module', version: '1.1.6'
-```
-
-Please note that the classifier `module` is required when using this implementation.
-
-#### Apache Johnzon
-*Maven*
-```xml
-<dependency>
-    <groupId>org.apache.johnzon</groupId>
-    <artifactId>johnzon-core</artifactId>
-    <version>1.2.1</version>
-    <scope>runtime</scope>
-</dependency>
-```
-
-*Gradle*
-```
-runtimeOnly group: 'org.apache.johnzon', name: 'johnzon-core', version: '1.2.1'
-```
-
-#### Joy
-*Maven*
-```xml
-<dependency>
-    <groupId>org.leadpony.joy</groupId>
-    <artifactId>joy</artifactId>
-    <version>1.2.0</version>
-    <scope>runtime</scope>
-</dependency>
-```
-
-*Gradle*
-```
-runtimeOnly group: 'org.leadpony.joy', name: 'joy', version: '1.2.0'
 ```
 
 ### Using with the Streaming API of JSON Processing
@@ -159,16 +120,6 @@ try (JsonReader reader = service.createReader(path, schema, handler)) {
     // Do something useful here
 }
 ```
-
-## Command-Line Interface
-
-Justify CLI is a command-line wrapper of Justify library.
-This utility can be used to validate JSON documents against JSON schemas without writing any code.
-
-### Downloads
-
-Check the [Releases] page to get the latest distribution in `tar.gz` or `zip` format,
-whichever you prefer. The software requires Java 8 or higher to run.
 
 
 ## Additional Resources
