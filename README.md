@@ -47,7 +47,7 @@ This software is available in the [Maven Central Repository] and the following d
 <dependency>
     <groupId>org.leadpony.justify</groupId>
     <artifactId>justify</artifactId>
-    <version>2.0.0</version>
+    <version>2.1.0.TDX</version>
 </dependency>
 ```
 
@@ -170,39 +170,6 @@ This utility can be used to validate JSON documents against JSON schemas without
 Check the [Releases] page to get the latest distribution in `tar.gz` or `zip` format,
 whichever you prefer. The software requires Java 8 or higher to run.
 
-### Usage
-
-After unpacking the downloaded file, just typing the following command validates a JSON instance against a JSON schema.
-
-```bash
-$ ./justify -s <path/to/schema> -i <path/to/instance>
-```
-
-The following command validates a JSON schema against its metaschema.
-
-```bash
-$ ./justify -s <path/to/schema>
-```
-
-#### Options
-
-##### -s _<path/to/schema>_
-
-Required option to specify a path to a JSON schema against which one or more JSON instances will be validated.
-
-##### -i _<path/to/instance>_ ...
-
-Optional option to specify a path to a JSON instance to be validated.
-Multiple instances can be specified using whitespace as a delimiter.
-
-##### -r _<path/to/schema>_ ...
-
-Optional option to specify a path to a JSON schema to be referenced by other JSON schemas.
-Multiple schemas can be specified using whitespace as a delimiter.
-
-##### -h
-
-Displays all available options including those shown above.
 
 ## Additional Resources
 
@@ -214,45 +181,6 @@ Displays all available options including those shown above.
 
 This software is one of the most correct implementation of the JSON Schema Specification. Please refer to the result of [JSON Schema Conformance Test].
 
-## Completion by `default` Keyword
-
-The missing properties and/or items in the instance can be filled with default values provided by `default` keyword while it is being validated.
-
-For example, the input JSON instance shown below
-```json
-{
-    "red": 64,
-    "green": 128,
-    "blue": 192
-}
-```
-
-will be filled with the default value and modified to:
-```json
-{
-    "red": 64,
-    "green": 128,
-    "blue": 192,
-    "alpha": 255
-}
-```
-
-Both `JsonParser` and `JsonReader` support the feature. `JsonParser` produces additional events caused by the default values and `JsonReader` expands objects and arrays with the additional values.
-
-By default, this feature is disabled and the instance never be modified. The following code shows how to explicitly enable the feature for the parsers and readers.
-
-```java
-ValidationConfig config = service.createValidationConfig();
-config.withSchema(schema)
-      .withProblemHandler(handler)
-      .withDefaultValues(true);  // This enables the feature.
-// For retrieving parser factory
-JsonParserFactory parserFactory = service.createParserFactory(config.getAsMap());
-// Or for retrieving reader factory
-JsonReaderFactory readerFactory = service.createReaderFactory(config.getAsMap());
-```
-
-For more information, please see [the code sample](https://github.com/leadpony/justify-examples/tree/master/justify-examples-defaultvalue).
 
 ## Building from Source
 
@@ -267,10 +195,20 @@ $ git clone --recursive https://github.com/leadpony/justify.git
 $ cd justify
 $ mvn clean install -P release
 ```
+## Release Instructions
 
-## Similar Solutions
+### Snapshot
+Maven Snapshots are built and pushed automatically by Drone on every code merge to `master` branch.
 
-There exist several JSON validator implementations conformant to the JSON Schema Specification, including those for other programming languages. [The list of implementations] is available on the JSON Schema web site.
+### Release
+
+To create a new release execute the following command using the latest `master` build number from Drone ([Drone CLI](https://docs.drone.io/cli/install/) and [authentication](https://docs.drone.io/cli/setup/) required):
+
+```bash
+drone build promote talkdesk-tdx/tdx-athena <latest_master_build_number> release
+```
+
+The command will trigger a new release using the [Maven Release plugin](https://maven.apache.org/maven-release/maven-release-plugin/).
 
 ## Copyright Notice
 Copyright &copy; 2018-2019 the Justify authors. This software is licensed under [Apache License, Versions 2.0][Apache 2.0 License].
