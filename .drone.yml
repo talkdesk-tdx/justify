@@ -39,7 +39,8 @@ steps:
       REPO_PASSWORD:
         from_secret: NEXUS_PASSWORD
     commands:
-      - mvn --settings settings.xml test  -DskipChecks=true
+      - cd justify
+      - mvn --settings ../settings.xml test  -DskipChecks=true
     when:
       event:
         - pull_request
@@ -53,9 +54,10 @@ steps:
       REPO_PASSWORD:
         from_secret: NEXUS_PASSWORD
     commands:
-      - mvn --settings settings.xml install -DskipChecks -DskipTests
+      - cd justify
+      - mvn --settings ../settings.xml install -DskipChecks -DskipTests
     when:
-      ref:
+      event:
         - pull_request
 
   - name: build and publish maven snapshot to nexus
