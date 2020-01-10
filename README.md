@@ -1,8 +1,5 @@
 # Justify
 [![Apache 2.0 License](https://img.shields.io/:license-Apache%202.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
-[![Maven Central](https://img.shields.io/maven-central/v/org.leadpony.justify/justify.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22org.leadpony.justify%22%20AND%20a:%22justify%22)
-[![Javadocs](https://www.javadoc.io/badge/org.leadpony.justify/justify.svg?color=green)](https://www.javadoc.io/doc/org.leadpony.justify/justify)
-[![Build Status](https://travis-ci.org/leadpony/justify.svg?branch=master)](https://travis-ci.org/leadpony/justify)
 
 Justify is a JSON validator based on [JSON Schema Specification] and [Java API for JSON Processing (JSR 374)].
 
@@ -40,20 +37,15 @@ You may use a combination of any of the constrainsts above as they are evaluated
 
 ### Minimum Setup
 
-This software is available in the [Maven Central Repository] and the following dependency should be added to your build.
+This software is available in the private TDX nexus repository and the following dependency should be added to your build. 
 
 *Maven*
 ```xml
 <dependency>
     <groupId>org.leadpony.justify</groupId>
     <artifactId>justify</artifactId>
-    <version>2.1.0.TDX</version>
+    <version>2.x.x.TDX</version>
 </dependency>
-```
-
-*Gradle*
-```
-implementation group: 'org.leadpony.justify', name: 'justify', version: '2.0.0'
 ```
 
 Note that the addition of this dependency brings the following artifacts as transitive dependencies.
@@ -62,10 +54,7 @@ Note that the addition of this dependency brings the following artifacts as tran
 * `com.ibm.icu:icu4j`
 
 Besides the library itself, one of [Java API for JSON Processing (JSR 374)] implementations is needed during runtime.
-This library supports the following implementations and you can select whichever you prefer.
-1. [Jakarta JSON Processing]
-2. [Apache Johnzon]
-3. [Joy]
+This library supports the following implementations and you should select [Jakarta JSON Processing]
 
 Please add this dependency to your build as shown below.
 
@@ -142,7 +131,7 @@ The following tools are required to build this software.
 The commands below build this software and install it into your local Maven repository.
 
 ```bash
-$ git clone --recursive https://github.com/leadpony/justify.git
+$ git clone --recursive https://github.com/talkdesk-tdx/justify.git
 $ cd justify
 $ mvn clean install -P release
 ```
@@ -156,7 +145,7 @@ Maven Snapshots are built and pushed automatically by Drone on every code merge 
 To create a new release execute the following command using the latest `master` build number from Drone ([Drone CLI](https://docs.drone.io/cli/install/) and [authentication](https://docs.drone.io/cli/setup/) required):
 
 ```bash
-drone build promote talkdesk-tdx/tdx-athena <latest_master_build_number> release
+drone build promote talkdesk-tdx/justify <latest_master_build_number> release
 ```
 
 The command will trigger a new release using the [Maven Release plugin](https://maven.apache.org/maven-release/maven-release-plugin/).
@@ -165,7 +154,6 @@ The command will trigger a new release using the [Maven Release plugin](https://
 Copyright &copy; 2018-2019 the Justify authors. This software is licensed under [Apache License, Versions 2.0][Apache 2.0 License].
 
 [Apache 2.0 License]: https://www.apache.org/licenses/LICENSE-2.0
-[Apache Johnzon]: https://johnzon.apache.org/
 [Apache Maven]: https://maven.apache.org/
 [API Reference in Javadoc]: https://www.javadoc.io/doc/org.leadpony.justify/justify
 [Changelog]: CHANGELOG.md
@@ -175,7 +163,6 @@ Copyright &copy; 2018-2019 the Justify authors. This software is licensed under 
 [Java API for JSON Binding (JSR 367)]: http://json-b.net/
 [java-json-tools/json-schema-validator]: https://github.com/java-json-tools/json-schema-validator
 [JDK]: https://jdk.java.net/
-[Joy]: https://github.com/leadpony/joy
 [JSON Schema Conformance Test]: https://github.com/leadpony/json-schema-conformance-test
 [JSON Schema Specification]: https://json-schema.org/
 [JSON Schema Test Suite]: https://github.com/json-schema-org/JSON-Schema-Test-Suite
@@ -183,5 +170,5 @@ Copyright &copy; 2018-2019 the Justify authors. This software is licensed under 
 [Justify Examples]: https://github.com/leadpony/justify-examples
 [Maven Central Repository]: https://mvnrepository.com/repos/central
 [networknt/json-schema-validator]: https://github.com/networknt/json-schema-validator
-[Releases]: https://github.com/leadpony/justify/releases/latest
+[Releases]: https://github.com/talkdesk-tdx/justify/releases/latest
 [The list of implementations]: https://json-schema.org/implementations.html  
