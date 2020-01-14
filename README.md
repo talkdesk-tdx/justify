@@ -38,10 +38,7 @@ You may use a combination of any of the constrainsts above as they are evaluated
 ### Minimum Setup
 
 This software is available in the private TDX nexus repository and the following dependency should be added to your build. 
-<<<<<<< HEAD
 The x represents the leadpony version and y is TDX internal versioning.
-=======
->>>>>>> origin
 
 *Maven*
 ```xml
