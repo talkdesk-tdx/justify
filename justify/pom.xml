@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.leadpony.justify</groupId>
         <artifactId>justify-parent</artifactId>
-        <version>2.1.0.TDX.0.1</version>
+        <version>2.1.0.TDX.0.2-SNAPSHOT</version>
     </parent>
 
     <artifactId>justify</artifactId>

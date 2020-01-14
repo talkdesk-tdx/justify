@@ -5,7 +5,7 @@
 
     <groupId>org.leadpony.justify</groupId>
     <artifactId>justify-parent</artifactId>
-    <version>2.1.0.TDX.0.1</version>
+    <version>2.1.0.TDX.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>org.leadpony.justify.parent</name>
 
@@ -230,7 +230,7 @@
         <connection>scm:git:https://github.com/talkdesk-tdx/justify.git</connection>
         <developerConnection>scm:git:https://github.com/talkdesk-tdx/justify.git</developerConnection>
         <url>scm:git:https://github.com/talkdesk-tdx/justify.git</url>
-        <tag>2.1.0.TDX.0.1</tag>
+        <tag>tdx-justify-0.1</tag>
     </scm>
 
     <repositories>
