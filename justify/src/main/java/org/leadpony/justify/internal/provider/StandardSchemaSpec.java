@@ -64,7 +64,8 @@ abstract class StandardSchemaSpec implements SchemaSpec {
         return new SchemaSpec[] {
                 new Draft04SchemaSpec(jsonService),
                 new Draft06SchemaSpec(jsonService),
-                new Draft07SchemaSpec(jsonService)
+                new Draft07SchemaSpec(jsonService),
+                new AjvExtensionSchemaSpec(jsonService)
         };
     }
 
@@ -152,6 +153,15 @@ abstract class StandardSchemaSpec implements SchemaSpec {
 
         Draft07SchemaSpec(JsonService jsonService) {
             super(SpecVersion.DRAFT_07, jsonService);
+        }
+    }
+
+    /**
+     * Spec for AJV.
+     */
+    private static class AjvExtensionSchemaSpec extends StandardSchemaSpec {
+        AjvExtensionSchemaSpec(JsonService jsonService) {
+            super(SpecVersion.AJV_EXTENSION_PROPOSAL, jsonService);
         }
     }
 }

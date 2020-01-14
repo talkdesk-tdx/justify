@@ -43,7 +43,7 @@ public enum SpecVersion {
     /**
      * AJV Extension.
      */
-    AJV_EXTENSION_PROPOSAL("https://ajv.js.org/keywords.html");
+    AJV_EXTENSION_PROPOSAL("https://ajv.js.org/keywords.html#");
 
     private static final Map<URI, SpecVersion> VERSION_MAP = Stream.of(SpecVersion.values())
             .collect(Collectors.toMap(SpecVersion::id, Function.identity()));
