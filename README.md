@@ -136,15 +136,6 @@ $ git clone --recursive https://github.com/talkdesk-tdx/justify.git
 $ cd justify
 $ mvn clean install -P release
 ```
-## Release Instructions
-
-### Snapshot
-Maven Snapshots are built and pushed automatically by Drone on every code merge to `master` branch.
-
-### Release
-
-The command will trigger a new release using the [Maven Release plugin](https://maven.apache.org/maven-release/maven-release-plugin/).
-
 ## Copyright Notice
 Copyright &copy; 2018-2019 the Justify authors. This software is licensed under [Apache License, Versions 2.0][Apache 2.0 License].
 
