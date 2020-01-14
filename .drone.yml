@@ -87,7 +87,7 @@ steps:
       - git config --global user.email "drone-ci@talkdesk.com"
       - git config --global user.name "Drone CI"
       - git config --global url."https://$GH_TOKEN@github.com/talkdesk-tdx/".insteadOf "https://github.com/talkdesk-tdx/"
-      - mvn --settings settings.xml -B release:prepare release:perform
+      - mvn --settings settings.xml -B release:prepare release:perform -DskipChecks -DskipTests
       - git push --set-upstream origin master && git push --set-upstream origin master --tags
     when:
       event:

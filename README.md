@@ -38,7 +38,10 @@ You may use a combination of any of the constrainsts above as they are evaluated
 ### Minimum Setup
 
 This software is available in the private TDX nexus repository and the following dependency should be added to your build. 
+<<<<<<< HEAD
 The x represents the leadpony version and y is TDX internal versioning.
+=======
+>>>>>>> origin
 
 *Maven*
 ```xml
@@ -136,6 +139,24 @@ $ git clone --recursive https://github.com/talkdesk-tdx/justify.git
 $ cd justify
 $ mvn clean install -P release
 ```
+<<<<<<< HEAD
+=======
+## Release Instructions
+
+### Snapshot
+Maven Snapshots are built and pushed automatically by Drone on every code merge to `master` branch.
+
+### Release
+
+To create a new release execute the following command using the latest `master` build number from Drone ([Drone CLI](https://docs.drone.io/cli/install/) and [authentication](https://docs.drone.io/cli/setup/) required):
+
+```bash
+drone build promote talkdesk-tdx/justify <latest_master_build_number> release
+```
+
+The command will trigger a new release using the [Maven Release plugin](https://maven.apache.org/maven-release/maven-release-plugin/).
+
+>>>>>>> origin
 ## Copyright Notice
 Copyright &copy; 2018-2019 the Justify authors. This software is licensed under [Apache License, Versions 2.0][Apache 2.0 License].
 
